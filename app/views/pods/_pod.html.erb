@@ -17,6 +17,8 @@
         <% end %>
     </p>
     <p>
+        Cat fact: <span class="metadata" style="background: green"><%= pod.metadata.annotations.cat_fact %>
+    <p>
         Containers:
         <% pod.status.containerStatuses.each do |container| %>
             <span class="metadata">

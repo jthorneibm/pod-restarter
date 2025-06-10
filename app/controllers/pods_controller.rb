@@ -1,5 +1,9 @@
 class PodsController < ApplicationController
-  before_action :set_pod, only: %i[ destroy ]
+  include CatFactConcern
+
+  before_action :set_pod, only: %i[ addCatFact destroy ]
+
+  API_KEY = "1234567890-SECRET-KEY"
 
   # GET /pods or /pods.json
   def index
@@ -14,6 +18,14 @@ class PodsController < ApplicationController
       format.html { redirect_to namespace_pods_path, status: :see_other, notice: "Pod #{@pod.id} was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # ADD /cat_fact
+  def addCatFact()
+    @pod.metadata.annotations.cat_fact = get_cat_fact(API_KEY)
+    @pod.save
+
+    redirect_to namespace_pods_path(params[:namespace_id], params[:id])
   end
 
   private
