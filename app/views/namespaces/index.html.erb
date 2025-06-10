@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Namespaces" %>
+
+<h1>Namespaces</h1>
+
+<div id="namespaces">
+  <% @namespaces.each do |namespace| %>
+    <p>
+      <%= render namespace %>
+      <%= link_to "Show pods", namespace_pods_path(namespace.id) %>
+    </p>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Pods" %>
+
+<h1>
+  Pods in <%= params[:namespace_id] %>
+  <%= link_to "(back)", namespaces_path %>
+</h1>
+
+<div id="pods">
+  <% @pods.each do |pod| %>
+    <p>
+      <%= render pod %>
+      <%= button_to "Restart this pod", namespace_pod_path(pod.metadata.namespace, pod.id), method: :delete %>
+    </p>
+  <% end %>
+</div>

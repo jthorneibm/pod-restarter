@@ -1,0 +1,27 @@
+<div id="<%= dom_id pod %>">
+    <h2><%= pod.metadata.name %></h2>
+    <p>
+        Labels:
+        <% pod.metadata.labels.to_h.each do |label, value| %>
+            <span class="metadata">
+                <%= label %>: <%=value%>
+            </span>
+        <% end %>
+    </p>
+    <p>
+        Annotations:
+        <% pod.metadata.annotations.to_h.each do |label, value| %>
+            <span class="metadata">
+                <%= label %>: <%=value%>
+            </span>
+        <% end %>
+    </p>
+    <p>
+        Containers:
+        <% pod.status.containerStatuses.each do |container| %>
+            <span class="metadata">
+                <%= container.name %>: <%= container.state.to_h.keys.first %>
+            </span>
+        <% end %>
+    </p>
+</div>
