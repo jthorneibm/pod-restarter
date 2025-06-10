@@ -12,6 +12,10 @@ class Pod
         Pod.new kubernetes_client.api('v1').resource('pods', namespace: namespace).get(name)
     end
 
+    def save
+        kubernetes_client.api('v1').resource('pods', namespace: metadata.namespace).update_resource(@resource)
+    end
+
     def destroy!
         kubernetes_client.api('v1').resource('pods', namespace: metadata.namespace).delete(metadata.name)
     end

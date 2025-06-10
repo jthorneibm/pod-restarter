@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :namespaces, only: [:index] do
     resources :pods, only: [:index, :destroy]
   end
+
+  get :add_cat_fact_to_pod, to: 'pods#addCatFact'
 end

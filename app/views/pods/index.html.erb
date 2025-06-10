@@ -11,6 +11,7 @@
   <% @pods.each do |pod| %>
     <p>
       <%= render pod %>
+      <%= link_to "Add cat fact", add_cat_fact_to_pod_path(namespace_id: pod.metadata.namespace, id: pod.id) %>
       <%= button_to "Restart this pod", namespace_pod_path(pod.metadata.namespace, pod.id), method: :delete %>
     </p>
   <% end %>
