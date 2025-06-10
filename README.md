@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Rails application to restart pods on a Kubernetes cluster.
 
-Things you may want to cover:
 
-* Ruby version
+## Development
 
-* System dependencies
+Make sure you have a Kubernetes cluster properly targeted in your `$KUBECONFIG`.
 
-* Configuration
+Run with `rails s`
 
-* Database creation
 
-* Database initialization
+## Production
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+PRs welcome!
